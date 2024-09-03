@@ -45,6 +45,7 @@ export class ContentComponent implements OnInit, OnChanges, OnDestroy {
       this.trackService.getTracksByCategory(category_id).subscribe({
         next: (response: any) => {
           this.videos = response.data.slice(0, 6);
+          //console.log(this.videos)
         },
         error: (errorTracks) => {
           console.error('Error al obtener los Tracks por categorias', errorTracks);

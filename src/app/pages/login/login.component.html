@@ -9,9 +9,9 @@
             class="w-full rounded-xl shadow md:mt-0 sm:max-w-md xl:p-0 bg-gray-800/50">           
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8 mb-4 mt-4">                
                 <h2 class="text-center font-bold text-2xl md:text-3xl text-white/90 cursor-default">
-                    BIENVENIDO
+                    BIENVENIDO 
                 </h2>    
-                <p class="text-red-700">{{loginError}}</p>          
+                         
                 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4 md:space-y-6">                   
                     <div>                       
                         <label for="email" class="block mb-2 text-sm md:text-base font-medium text-gray-900 dark:text-white">Tu
@@ -62,7 +62,10 @@
                             class="text-xs md:text-sm font-medium hover:underline text-primary-500 cursor-pointer">Olvidaste
                             tu contraseña?
                         </span>
-                    </div>              
+                    </div>
+                    @if(loginError){
+                        <p class="text-red-700 text-center">ERROR: {{loginError}}</p>  
+                    }           
                     <button type="submit"
                         class="w-full text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-primary-700 hover:bg-primary-800 focus:ring-primary-800">Acceder
                     </button>

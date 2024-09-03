@@ -1,8 +1,9 @@
 @if(!categories){
     <app-spinner></app-spinner>
-}@else {
+}@else {   
     @for(category of categories; track category.id){
         <app-content [category]="category"></app-content>
     }
     <app-trends></app-trends>
+    <!-- <app-my-apk></app-my-apk> -->
 }

@@ -29,15 +29,15 @@
           <a [routerLink]="['/sesion', video.id]">
             <div class="w-full rounded-t-lg overflow-hidden">
               @if(video.url){
-                <img class="-my-6 lg:-my-8" [src]="getThumb(video.url, 'sddefault')" alt="sesionDj" />
+                <img class="-my-6 lg:-my-8" [src]="getThumb(video.url, 'sddefault')" [alt]="video.title" />
                 }@else {
                 <img class="opacity-30" src="assets/img/default-video.jpg" alt="error" />
                 }
             </div> 
             <div class="pb-1 pt-1 md:pt-3 md:pb-2 px-2 max-h-40 flex flex-col items-center justify-between">
-              <h3 class="mb-1 text-center text-base lg:text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h3 class="mb-1 text-center text-base lg:text-xl font-bold tracking-tight text-white">
                 {{video.dj}}</h3>
-              <p class="text-sm lg:text-base text-center h-auto text-gray-700 dark:text-gray-400 overflow-hidden">
+              <p class="text-sm lg:text-base text-center h-auto text-gray-400 overflow-hidden">
                 {{video.title}}
               </p>
               <div class="flex w-auto gap-2">

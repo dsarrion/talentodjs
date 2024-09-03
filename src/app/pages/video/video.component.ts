@@ -17,12 +17,13 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModu
 import { UserService } from '../../services/user/user.service';
 import { AvatarIconComponent } from '../../components/avatar-icon/avatar-icon.component';
 import 'emoji-picker-element';
+import { MyApkComponent } from '../../components/my-apk/my-apk.component';
 
 @Component({
   selector: 'app-video',
   standalone: true,
   imports: [CommonModule , ContentComponent, YouTubePlayerModule, RouterLink, UnlikeComponent, LikeComponent, 
-            CommentsComponent, ShareComponent, AvatarComponent, AvatarIconComponent, ReactiveFormsModule ],
+            CommentsComponent, ShareComponent, AvatarComponent, AvatarIconComponent, ReactiveFormsModule, MyApkComponent],
   templateUrl: './video.component.html',
   styleUrl: './video.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

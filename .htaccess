@@ -1,8 +1,16 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+
+  # Permitir el acceso al directorio downloads
+  RewriteRule ^downloads/.*$ - [L]
+
+  # Mantener las reglas de reescritura para la SPA
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /dist/browser/index.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/vnd.android.package-archive .apk
 </IfModule>

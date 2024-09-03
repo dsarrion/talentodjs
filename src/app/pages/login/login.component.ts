@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           },
           error: (errorData) => {
             console.error(errorData);
-            this.loginError = errorData;
+            this.loginError = errorData.error.errors ? errorData.error.errors[0] : 'Datos incorrectos';
           },
           complete: () => {
             this.router.navigate(['/inicio']);

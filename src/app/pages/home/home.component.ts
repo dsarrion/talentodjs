@@ -4,18 +4,18 @@ import { TracksService } from '../../services/tracks/tracks.service';
 import { Subscription } from 'rxjs';
 import { SpinnerComponent } from '../../components/spinner/spinner.component';
 import { TrendsComponent } from '../../components/trends/trends.component';
+import { MyApkComponent } from '../../components/my-apk/my-apk.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ContentComponent, SpinnerComponent, TrendsComponent],
+  imports: [ContentComponent, SpinnerComponent, TrendsComponent, MyApkComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit, OnDestroy{
 
   categories?:any;
-  errorMessage:string = "";
   private subscriptions: Subscription = new Subscription(); 
 
   constructor(private trackService: TracksService){}
@@ -32,21 +32,30 @@ export class HomeComponent implements OnInit, OnDestroy{
           this.trackService.getAllTracks().subscribe({
             next: (response) => {
               const idsCategories = new Set(response.map((track: any) => track.category_id)); // Sacar los ids de las categorias
-              this.categories = categories.filter((category: any) => idsCategories.has(category.id)); // Filtrar las categorías con tracks
+              let filteredCategories = categories.filter((category: any) => idsCategories.has(category.id)); // Filtrar las categorías con tracks
+                // Mezclar las categorías filtradas de forma aleatoria
+              filteredCategories = this.shuffleArray(filteredCategories);
+              this.categories = filteredCategories; // Asignar las categorías aleatorias
             },
             error: (errorData) => {
               console.error(errorData);
-              this.errorMessage = errorData;
             },
           })
         },
         error: (errorData) => {
           console.error(errorData);
-          this.errorMessage = errorData;
         },
       })
     )
   }
+
+shuffleArray(array: any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
