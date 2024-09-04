@@ -16,6 +16,7 @@ import { EditCatComponent } from './pages/admin/category/edit-cat/edit-cat.compo
 import { VideoComponent } from './pages/video/video.component';
 import { AjustesComponent } from './pages/ajustes/ajustes.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
+import { AppAndroidComponent } from './pages/app-android/app-android.component';
 
 export const routes: Routes = [
     {path: "", redirectTo:'/inicio', pathMatch:'full'},
@@ -28,6 +29,7 @@ export const routes: Routes = [
     {path: "ajustes", component: AjustesComponent},
     {path: "perfil", component: PerfilComponent},
     {path: "favoritos", component: FavoritesComponent},
+    {path: "app_android", component: AppAndroidComponent},
     {path: "admin_panel", component: AdminPanelComponent},
     {path: "videoUpload", component: NewVideoComponent},
     {path: "all_videos", component: AllVideosComponent},

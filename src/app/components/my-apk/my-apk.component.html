@@ -1,9 +1,14 @@
-<section class="max-w-screen-xl mx-auto border border-gray-700/80 rounded-lg flex flex-col text-gray-400 p-2 text-pretty cursor-default">
-    <p class="flex justify-center">
-        Ya disponible la app Android de TalentoDJs
-    </p>
-    <p class="flex justify-center items-center">
-        <a href="/downloads/app-release.apk" class="text-indigo-400 m-1 hover:text-indigo-500" download="DJsMusic.apk">PULSA AQUI</a>
-        para descargar
-    </p>
+<section class="max-w-64 md:max-w-sm mx-auto border border-gray-700/80 rounded-lg text-gray-400 p-2 text-pretty mb-4 bg-gray-500/20 hover:scale-110 transition-transform">
+    <a routerLink="/app_android" (click)="scrollTop()" class="flex items-center justify-center text-sm md:text-base">
+        
+        <div class="flex items-center">
+            <p class="flex justify-center text-gray-300 mr-3 md:mr-6">
+                App Android
+            </p>
+            <img src="assets/img/logo-r.webp" class="h-8 md:h-10" alt="Logo"/>
+            <p class="flex justify-center text-gray-300 ml-3 md:ml-5">
+                ¡Ya disponible!
+            </p>
+        </div>
+    </a>
 </section>
